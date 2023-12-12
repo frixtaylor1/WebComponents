@@ -95,5 +95,3 @@ document.body.appendChild(style);
 Contributions are welcome! Feel free to submit issues, feature requests, or pull requests to improve the functionality and usability of the web components in this SDK application.
 
 ---
-
-Feel free to modify the README according to your project's specific details and requirements.
