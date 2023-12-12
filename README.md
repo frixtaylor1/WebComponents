@@ -1,7 +1,3 @@
-Certainly! Below is a sample README for your SDK application for vanilla JavaScript using web components with an MVC approach:
-
----
-
 # SDK Application for JavaScript Vanilla
 
 ## Overview
