@@ -1,0 +1,95 @@
+
+.x-data-table {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    margin-left: 15%;
+    width: 15%;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.wc-data-table-container {
+    padding: 20px;
+}
+
+.wc-data-table-filter {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: text;
+    margin-left: 20px;
+}
+
+.wc-data-table-prev-page-button,
+.wc-data-table-next-page-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+.wc-data-table-prev-page-button:hover,
+.wc-data-table-next-page-button:hover {
+    background-color: #277dbf;
+}
+
+.wc-data-table-container tr:hover {
+    background-color: #f9efbd;
+}
+
+.wc-data-table-indicator {
+    font-size: small;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    .wc-data-table-filter {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .wc-data-table-prev-page-button,
+    .wc-data-table-next-page-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
