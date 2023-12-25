@@ -21,12 +21,19 @@
  */
 
 class WCLoginFormModel {
-  constructor(APIController) {
-    this.api = APICallController(apiurl);
+  constructor(apiController) {
+    this.api = apiController;
   }
 
   async login(loginData) {
-    this.api.call('/login', 'POST', loginData);
+    let result = await  this.api.call('/login', 'POST', loginData);
+    
+    if (result.status === 200) {
+      sessionStorage.setItem('token-sea', result.data.token);
+      return result.data;
+    } else {
+      return result;
+    }
   }
 }
 

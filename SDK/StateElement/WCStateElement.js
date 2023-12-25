@@ -29,7 +29,6 @@ class HTMLViewStateElement extends HTMLElement {
     }
   }
 
-
   removeStateTransition(currentStateObject, nextStateObject, event) {
     if (this.#transitions.has(currentStateObject)) {
       const eventMap = this.#transitions.get(currentStateObject);

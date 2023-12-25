@@ -43,8 +43,8 @@ class WCLoginFormView extends HTMLElement {
 
   connectedCallback() {
     //Forward public ui events ( eventtype is analogue to "method name" and details are the parameters of the request)
-    this.#loginButton.onclick     = (event) => this.dispatchEvent(createEvent('wce-login', this.#readLoginParameters()));
-    this.#registerButton.onclick  = (event) => this.dispatchEvent(createEvent('screenschange', 'register'));
+    this.#loginButton.onclick     = (event) => this.#login();
+    this.#registerButton.onclick  = (event) => this.#register();
   }
 
   disconnectedCallback() {
@@ -57,7 +57,14 @@ class WCLoginFormView extends HTMLElement {
     this.#passwordInput.value = '';
   }
 
-  //Design ( read() -> FormData)
+  #login() {
+    this.#loginButton.addEventListener('click', () => { this.dispatchEvent(createEvent('wce-login', this.#readLoginParameters())) });
+  }
+
+  #register() {
+    this.#registerButton.addEventListener('click', () => { this.dispatchEvent(createEvent('wce-signup-button-view')) });
+  }
+
   #readLoginParameters() {
     let fd = new FormData();
 

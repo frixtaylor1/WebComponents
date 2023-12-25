@@ -30,6 +30,10 @@ class WCLoginController {
     this.#model = modelReference;
   }
 
+  enable() {
+    
+  }
+
 //private:
   #view   = undefined;
   #model  = undefined;
