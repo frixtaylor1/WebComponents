@@ -4,12 +4,15 @@ class HTMLViewStateElement extends HTMLElement {
   
   constructor() {
     super();
-    this.#transitions  = new Map();
+    this.#transitions = new Map();
     this.#currentState = null;
   }
 
   _oneventraised(event) {
-    this.setCurrentState(this.queryNextState(event.type));
+    const nextState = this.queryNextState(event.type);
+    if (nextState !== null) {
+      this.setCurrentState(nextState);
+    }
   }
 
   addStateTransition(currentStateObject, nextStateObject, event) {
@@ -40,13 +43,16 @@ class HTMLViewStateElement extends HTMLElement {
   }
 
   setCurrentState(stateObject) {
-    this.#currentState = stateObject;
+    if (this.#currentState !== stateObject) {
+      if (this.#currentState !== null) {
+        this.removeChild(this.#currentState);
+      }
 
-    if (this.children.length == 0) {
-      this.appendChild(this.#currentState);
-    }
-    else {
-      this.children[0].replaceWith(this.getCurrentState());
+      this.#currentState = stateObject;
+
+      if (this.#currentState !== null) {
+        this.appendChild(this.#currentState);
+      }
     }
   }
 
@@ -57,6 +63,7 @@ class HTMLViewStateElement extends HTMLElement {
   queryNextState(event) {
     if (this.#transitions.has(this.#currentState)) {
       const eventMap = this.#transitions.get(this.#currentState);
+
       if (eventMap.has(event)) {
         return eventMap.get(event);
       }
