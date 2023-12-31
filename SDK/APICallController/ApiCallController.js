@@ -1,6 +1,6 @@
 class APICallController {
 //public:
-  constructor(api) {
+  constructor(api = 'https://api.seasystem.pm:3000') {
     this.#api = api;
   }
 
@@ -11,13 +11,14 @@ class APICallController {
       headers.auth = `Bearer ${sessionStorage.getItem('token-sea')}`;
     }
 
+    
     return await fetch(this.#api + url, {
-      method: method,
+      method: method == 'GET' ? 'GET' : 'POST',
       headers: {
         'Content-Type': 'application/json',
         ...headers ?? {}
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data) ?? null
     });
   }
 
